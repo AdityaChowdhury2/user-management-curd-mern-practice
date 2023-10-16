@@ -13,7 +13,8 @@ const Router = createBrowserRouter([
 				path: '/',
 				element: <Home />,
 
-				loader: () => fetch('http://localhost:5000/users'),
+				loader: () =>
+					fetch('https://user-management-mern-server.vercel.app/users'),
 			},
 			{
 				path: '/addUser',
@@ -23,7 +24,9 @@ const Router = createBrowserRouter([
 				path: '/editUser/:id',
 				element: <EditUser />,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/users/${params.id}`),
+					fetch(
+						`https://user-management-mern-server.vercel.app/users/${params.id}`
+					),
 			},
 		],
 	},

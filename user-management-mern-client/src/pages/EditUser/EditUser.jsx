@@ -14,10 +14,9 @@ const EditUser = () => {
 		const email = form.email.value;
 		const gender = form.gender.value;
 		const status = form.status.value;
-		console.log(name, email, gender, status);
 
 		const response = await axios.put(
-			`http://localhost:5000/users/${loadedUsers._id}`,
+			`https://user-management-mern-server.vercel.app/users/${loadedUsers._id}`,
 			{ name, email, gender, status },
 			{ headers: { 'Content-Type': 'application/json' } }
 		);

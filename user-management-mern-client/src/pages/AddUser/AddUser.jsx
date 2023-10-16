@@ -11,11 +11,10 @@ const AddUser = () => {
 		const email = form.email.value;
 		const gender = form.gender.value;
 		const status = form.status.value;
-		console.log(name, email, gender, status);
 
 		try {
 			const response = await axios.post(
-				'http://localhost:5000/users',
+				'https://user-management-mern-server.vercel.app/users',
 				{
 					name,
 					email,

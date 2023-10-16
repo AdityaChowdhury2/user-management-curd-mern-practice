@@ -20,10 +20,16 @@ const Home = () => {
 			confirmButtonText: 'Yes, delete it!',
 		});
 		if (swalRes.isConfirmed) {
-			const response = await axios.delete(`http://localhost:5000/users/${id}`);
-			if (response.data.deletedCount) {
-				setUsers(users.filter(user => user._id !== id));
-				Swal.fire('Deleted!', 'The user has been deleted.', 'success');
+			try {
+				const response = await axios.delete(
+					`https://user-management-mern-server.vercel.app/users/${id}`
+				);
+				if (response.data.deletedCount) {
+					setUsers(users.filter(user => user._id !== id));
+					Swal.fire('Deleted!', 'The user has been deleted.', 'success');
+				}
+			} catch (e) {
+				console.log(e);
 			}
 		}
 	};
